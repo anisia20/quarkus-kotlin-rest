@@ -10,6 +10,7 @@ repositories {
 }
 
 dependencies {
+    implementation 'io.quarkus:quarkus-smallrye-openapi'
     implementation enforcedPlatform("${quarkusPlatformGroupId}:${quarkusPlatformArtifactId}:${quarkusPlatformVersion}")
     implementation 'io.quarkus:quarkus-kotlin'
     implementation 'io.quarkus:quarkus-resteasy-reactive-jackson'
@@ -18,6 +19,7 @@ dependencies {
     implementation 'io.quarkus:quarkus-resteasy-reactive'
     testImplementation 'io.quarkus:quarkus-junit5'
     testImplementation 'io.rest-assured:rest-assured'
+
 }
 
 group 'org.acme'

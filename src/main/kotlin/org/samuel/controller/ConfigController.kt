@@ -8,12 +8,12 @@ import jakarta.ws.rs.core.Context
 import org.apache.commons.logging.impl.JBossLogFactory
 
 
-@Path("/")
+@Path("/config")
 class ConfigController {
     val log = JBossLogFactory.getFactory();
 
     @GET
-    @Path("/")
+    @Path("/getdata")
     @PermitAll
     fun getConfig(@Context request : HttpRequest){
         val headers = request.headers()
