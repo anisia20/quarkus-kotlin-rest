@@ -1,5 +1,6 @@
 package org.samuel.controller
 
+import io.quarkus.logging.Log
 import jakarta.annotation.security.PermitAll
 import jakarta.enterprise.context.RequestScoped
 import jakarta.ws.rs.GET
@@ -14,6 +15,7 @@ class HealthController {
     @Path("health")
     @PermitAll
     fun health(): Response {
+        Log.info("test")
         return Response.ok().build()
     }
 }

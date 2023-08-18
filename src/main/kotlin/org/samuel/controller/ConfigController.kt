@@ -1,22 +1,34 @@
 package org.samuel.controller
 
-import io.vertx.core.spi.observability.HttpRequest
+import io.quarkus.logging.Log
 import jakarta.annotation.security.PermitAll
+import jakarta.enterprise.context.RequestScoped
+import jakarta.enterprise.inject.Default
+import jakarta.inject.Inject
 import jakarta.ws.rs.GET
+import jakarta.ws.rs.POST
 import jakarta.ws.rs.Path
-import jakarta.ws.rs.core.Context
-import org.apache.commons.logging.impl.JBossLogFactory
+import jakarta.ws.rs.Produces
+import jakarta.ws.rs.core.MediaType
+import jakarta.ws.rs.core.Response
+import org.samuel.model.dto.ConfigDto
+import org.samuel.service.ConfigService
 
 
 @Path("/config")
-class ConfigController {
-    val log = JBossLogFactory.getFactory();
+@RequestScoped
+class ConfigController{
 
-    @GET
+    @Inject
+    @field: Default
+    lateinit var service: ConfigService
+
+    @POST
     @Path("/getdata")
+    @Produces(MediaType.APPLICATION_JSON)
     @PermitAll
-    fun getConfig(@Context request : HttpRequest){
-        val headers = request.headers()
+    fun getConfig( dto : ConfigDto) : Response {
+        return service.getConfig(dto)
     }
 
 }

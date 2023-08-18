@@ -1,6 +1,12 @@
 package org.samuel.code
 
-enum class ResultCode(r: String, tp: String, rd: String, cd: String) {
+
+enum class ResultCode(
+    val r: String,
+    val tp: String,
+    val rd: String,
+    val cd: String
+) {
     /** 내부 코드 체계  */
     R_000("000", "COMMON", "성공", "성공"),
     R_201("201", "CONFIG", "GNB 데이터 서버 오류.", "GNB 데이터 서버 오류."),
@@ -32,9 +38,4 @@ enum class ResultCode(r: String, tp: String, rd: String, cd: String) {
         "기타",
         "기타오류"
     );
-
-    var r: String? = null
-    var tp: String? = null
-    var rd: String? = null
-    var cd: String? = null
 }
